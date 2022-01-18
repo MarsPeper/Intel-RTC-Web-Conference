@@ -1,0 +1,42 @@
+body {
+  font-family: 'Roboto Slab', serif;
+}
+
+#mainUI {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#meetingColumn {
+  width: 30%;
+}
+#videoChat {
+  width: 50%;
+  height: 80%;
+  border-width: 2px;
+  border-radius: 4px;
+  border-style: solid;
+  border-color: black;
+  background-color: red;
+}
+.meetingItemContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  border-width: 2px;
+  border-radius: 4px;
+  border-style: solid;
+  border-color: black;
+  padding: 15px;
+}
+.meetingTime {
+  display: flex;
+  flex-direction: row;
+}
+.meetingStartTime {
+  margin: 2px;
+}
+.meetingEndTime {
+  margin: 2px;
+}

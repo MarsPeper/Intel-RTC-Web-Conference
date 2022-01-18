@@ -1,0 +1,16 @@
+{
+  "name": "intel-rtc-web-conference",
+  "version": "1.0.0",
+  "description": "AI Online Annotation Tools to detech anomlie. This is the prototype for the RTC Web Conference web application.",
+  "main": "index.js",
+  "dependencies": {
+    "express-handlebars": "^6.0.2",
+    "handlebars": "^4.7.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
