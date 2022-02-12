@@ -1,48 +1,157 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&family=Roboto:wght@300;500&display=swap');
+</style>
 <h1> Sample UI built by Loc Nguyen </h1>
+
 <!-- Main UI consist of a list of meetings on the left, and the video chat stuff -->
 <div id="mainUI">
   <!-- Meeting list column -->
   <div id="meetingColumn">
     <h2>List of meetings</h2>
     <div class="meetingContainer"> </div>
+  <!-- PASSING in data from api call works
+      However, still need to render it to specific part of
+    meetingItemContainer-->
+    <!--
+    <div>
+      {{{meetingsData}}}
+    </div>
+        -->
+
+
+    <!--
+    {{#each meetingsData.meetings}}
     <div class="meetingItemContainer">
-          <div class="meetingTitle"> Meeting Title </div>
+          <div class="meetingTitle"> {{meetingsData.title}} </div>
           <div class="meetingHost"> Host name </div>
           <div class= "meetingTime">
               <div class="meetingStartTime"> 10AM </div>
               <div class="meetingEndTime"> 11AM </div>
           </div>
     </div>
+    {{/each}}
+    -->
     <div class="meetingItemContainer">
-          <div class="meetingTitle"> Meeting Title </div>
+          <div class="meetingTitle"> Title </div>
           <div class="meetingHost"> Host name </div>
           <div class= "meetingTime">
               <div class="meetingStartTime"> 10AM </div>
               <div class="meetingEndTime"> 11AM </div>
           </div>
-    </div>
-    <div class="meetingItemContainer">
-          <div class="meetingTitle"> Meeting Title </div>
-          <div class="meetingHost"> Host name </div>
-          <div class= "meetingTime">
-              <div class="meetingStartTime"> 10AM </div>
-              <div class="meetingEndTime"> 11AM </div>
-          </div>
-    </div>
-    <div class="meetingItemContainer">
-          <div class="meetingTitle"> Meeting Title </div>
-          <div class="meetingHost"> Host name </div>
-          <div class= "meetingTime">
-              <div class="meetingStartTime"> 10AM </div>
-              <div class="meetingEndTime"> 11AM </div>
-          </div>
+          <div class="meetingDate"> Meeting Date </div>
+          <div class="meetingUrl"> Meeting URL</div>
+          <div class="meetingLocation"> Meeting Location</div>
     </div>
 
-    <button> Create Meeting </button>
+    <div id="meeting-button-container">
+      <a id="create-meeting-button" class="button1 bouncy">CREATE MEETING</a>
+    </div>
+
   </div>
 
-  <!-- The video chat annotation stuff thingy on the right?? -->
-  <div id="videoChat">
-    Stuff
-  </div>
 </div>
+
+<div id="modal-backdrop" class="hidden"></div>
+    <div id="create-meeting-modal" class="hidden">
+      <div class="modal-dialog">
+
+        <div class="modal-header">
+          <h3>Create A Meeting</h3>
+          <button type="button" id="modal-close" class="modal-hide-button">×</button>
+          <button type="button" id="modal-close" class="modal-hide-button"></button>
+        </div>
+
+        <div class="modal-body">
+
+          <div class="post-input-element">
+            <label for="post-title-input">Meeting Title</label>
+            <input type="text" id="post-title-input"></input>
+          </div>
+
+          <div class="post-input-element">
+            <label for="post-location-input">Meeting Location</label>
+            <input type="text" id="post-location-input">
+          </div>
+
+          <div class="post-time-element">
+            <label for="post-time-input">Start/End Time</label>
+            <div id="start-end-time-container">
+              <input type="time" id="post-start-time-input">
+              <input type="time" id="post-end-time-input">
+            </div>
+          </div>
+
+          <div class="post-date-element">
+            <label for="post-date-input">Start/End Date</label>
+            <div>
+              <input type="date" id="post-start-date-input">
+            </div>
+            <div>
+              <input type="date" id="post-end-date-input">
+            </div>
+          </div>
+
+          <div class="post-input-element">
+            <label for="post-description-input">Description</label>
+            <input type="text" id="post-description-input">
+          </div>
+          <div class="post-input-element">
+            <label for="post-url-input">Url</label>
+            <input type="text" id="post-url-input">
+          </div>
+
+
+          <div class="post-input-element">
+            <label for="post-attendees-input">Attendees</label>
+            <input type="text" id="post-attendees-input">
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" id="modal-cancel" class="button1 bouncy">Cancel</button>
+          <button type="button" id="modal-create" class="button1 bouncy">Create Meeting</button>
+        </div>
+
+      </div>
+    </div>
+
+    <script>
+    //Pop up modal when "create meeting" is pressed
+    function CreateMeetingButtonClicked() {
+      var ModalBackdrop = document.getElementById('modal-backdrop');
+      var CreateMeetingModal = document.getElementById("create-meeting-modal");
+      ModalBackdrop.classList.toggle('hidden');
+      CreateMeetingModal.classList.toggle('hidden');
+    }
+    var ModalClose = document.getElementById('modal-close');
+    var ModalCancel = document.getElementById('modal-cancel');
+    var CreateMeeting = document.getElementById('create-meeting-button');
+    var ConfirmCreateMeetingButton = document.getElementById('modal-create')
+    CreateMeeting.addEventListener('click', CreateMeetingButtonClicked);
+    ModalClose.addEventListener('click', CloseModal);
+    ModalCancel.addEventListener('click', CloseModal);
+
+    //NEED TO WRITE A POST METHOD FUNCTION
+    // and bind it with this to actually
+    // send the post method request
+    ConfirmCreateMeetingButton.addEventListener('click', CloseModal);
+
+
+
+    function CloseModal() {
+        var ModalBackdrop = document.getElementById('modal-backdrop');
+        var CreateMeetingModal = document.getElementById('create-meeting-modal');
+
+        ModalBackdrop.classList.toggle('hidden');
+        CreateMeetingModal.classList.toggle('hidden');
+
+        var PostTitleInput = document.getElementById('post-title-input');
+        var PostLocationInput = document.getElementById('post-location-input');
+        var PostTimeInput = document.getElementById('post-time-input');
+        var PostAttendeesInput = document.getElementById('post-attendees-input');
+        PostTitleInput.value = "";
+        PostLocationInput.value = "";
+        PostTimeInput.value = "";
+        PostAttendeesInput.value = "";
+      }
+    </script>

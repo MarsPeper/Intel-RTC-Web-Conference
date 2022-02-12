@@ -1,5 +1,8 @@
 body {
+  font-family: 'Roboto', sans-serif;
   font-family: 'Roboto Slab', serif;
+  background: rgb(86,128,233);
+  background: radial-gradient(circle, rgba(86,128,233,1) 0%, rgba(90,185,234,1) 100%);
 }
 
 #mainUI {
@@ -12,23 +15,30 @@ body {
   width: 30%;
 }
 #videoChat {
-  width: 50%;
-  height: 80%;
+  width: 800px;
+  height: 600px;
   border-width: 2px;
   border-radius: 4px;
   border-style: solid;
   border-color: black;
   background-color: red;
+  margin-right: 2vw;
 }
 .meetingItemContainer {
   display: flex;
   flex-direction: column;
   margin: 10px;
-  border-width: 2px;
-  border-radius: 4px;
-  border-style: solid;
-  border-color: black;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color: white;
   padding: 15px;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.meetingItemContainer:hover {
+  color: #fff;
+  background-color: #C1C8E4;
+  border-color: #C1C8E4;
+  cursor: pointer;
 }
 .meetingTime {
   display: flex;
@@ -39,4 +49,168 @@ body {
 }
 .meetingEndTime {
   margin: 2px;
+}
+#modal-backdrop {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+#create-meeting-modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1010;
+  overflow: scroll;
+}
+
+.hidden {
+  display: none;
+}
+
+.modal-dialog {
+  width: auto;
+  max-width: 600px;
+  min-width: 350px;
+  min-height: 300px;
+  margin: 40px auto;
+  background-color: #fff;
+  border-radius: 15px;
+}
+
+.modal-header {
+  position: relative;
+  padding: 10px 20px;
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-size: 28px;
+}
+
+#modal-close {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  font-size: 24px;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.modal-body {
+  padding: 20px;
+}
+.post-input-element {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+.post-input-element > label {
+  font-weight: 600;
+  flex: 1 75px;
+  margin-right: 10px;
+}
+
+.post-input-element input {
+  flex: 6 200px;
+  padding: 8px;
+  font-size: 20px;
+  border: 1px solid #aaa;
+}
+
+.post-fieldset {
+  flex: 1 100%;
+  border: 1px solid #ababab;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 10px 20px 10px;
+}
+
+#modal-cancel,
+#modal-create {
+  margin-right: 20px;
+}
+
+#modal-cancel {
+  background-color: #fff;
+}
+
+#modal-cancel:hover {
+  background-color: #eee;
+}
+.meetingTitle {
+  align-self: center;
+}
+#meeting-button-container {
+  margin-top: 20px;
+}
+.bouncy {
+    cursor: pointer;
+    font-weight: 800;
+    line-height: 1.5;
+    text-align: center;
+    background-color: white;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    margin: 10px;
+}
+.bouncy:hover {
+    color: #fff;
+    background-color: #C1C8E4;
+    border-color: #C1C8E4;
+}
+.post-time-element {
+  display:flex;
+  font-weight: 600;
+  flex: 1 75px;
+  margin-right: 10px;
+  font-size: 20px;
+  align-items: center;
+}
+#start-end-time-container {
+  margin-left: 140px;
+  margin-bottom: 10px;
+  
+}
+
+.post-time-element input {
+  flex: 6 200px;
+  padding: 8px;
+  font-size: 20px;
+  border: 1px solid #aaa;
+}
+#post-start-date-input {
+  font-size: 20px;
+}
+#post-end-date-input {
+  font-size: 20px;
+}
+.post-date-element input {
+  flex: 6 200px;
+  padding: 8px;
+  border: 1px solid #aaa;
+}
+.post-date-element {
+  display:flex;
+  font-weight: 600;
+  flex: 1 75px;
+  margin-right: 10px;
+  font-size: 20px;
+  align-items: center;
+  justify-content: space-between;
 }

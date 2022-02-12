@@ -1,2 +1,2 @@
 # Intel RTC Web Conference
- AI Online Annotation Tools to detech anomlie. This is the prototype for the RTC Web Conference web application.
+ AI Online Annotation Tools to detect anomalie. This is the sample UI for the meeting scheduler.

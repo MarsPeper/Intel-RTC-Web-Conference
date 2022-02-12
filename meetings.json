@@ -1,0 +1,35 @@
+[ {
+        "roomId":  "R3sJL5oCrsoNsi7YuCDgZBdzyAAtKNN3",
+        "categories": [],
+        "createdTime": "2022-02-10T22:47:33Z",
+        "updatedTime": "2022-02-10T22:47:33Z",
+        "_id":  "IWwm5mLkx2iXGdx53sQ875AyZKaaPHzL",
+        "start": "2022-02-10T22:47:33Z",
+         "duration": {
+         "hours":   2,
+         "minutes": 0
+         },
+        "organizer": {
+        "name": "Test",
+        "email": "test@intel.com"
+        },
+       "categories": [],
+       "start": "2022-02-10T22:47:33Z",
+       "title": "Something",
+       "description": "Meeting for something",
+       "location": "Somewhere",
+       "url": "meetingsite.intel.com",
+       "status": "CONFIRMED",
+       "busyStatus": "FREE" ,
+       "attendees": [
+        {
+            "name": "Test1",
+            "email": "Test1@intel.com",
+            "rsvp": false,
+            "partstat": "ACCEPTED",
+            "dir":  "Not sure what this is",
+            "role": "REQ-PARTICIPANT"
+        }
+      ]
+    }
+]
